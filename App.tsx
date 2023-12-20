@@ -61,6 +61,7 @@ function App(): React.JSX.Element {
 
   useEffect(() => {
     // Update the document title using the browser API
+    console.log("MobileCore",MobileCore)
     MobileCore.collectPii({ myPii: 'data' });
   });
   

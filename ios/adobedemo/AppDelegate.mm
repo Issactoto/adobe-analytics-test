@@ -9,12 +9,16 @@
   self.moduleName = @"adobedemo";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
-  self.initialProps = @{};
+  
 
-    [AEPMobileCore setLogLevel: AEPLogLevelDebug];
-  [AEPMobileCore configureWithAppId:@"yourAppID"];
+  // [AEPMobileCore setLogLevel: AEPLogLevelDebug];
+  // [AEPMobileCore configureWithAppId:@"yourAppID"];
 
   const UIApplicationState appState = application.applicationState;
+
+
+  [AEPMobileCore setLogLevel: AEPLogLevelDebug];  
+  [AEPMobileCore configureWithAppId:@"yourAppID"];
 
   [AEPMobileCore registerExtensions: @[
       AEPMobileLifecycle.class,
@@ -28,7 +32,8 @@
       }
     }];
 
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  [super application:application didFinishLaunchingWithOptions:launchOptions];
+  return YES;
   
 }
 

@@ -51,5 +51,13 @@ target 'adobedemo' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
+    installer.pods_project.targets.each do |t|
+      if t.name.start_with?("AEP")
+        t.build_configurations.each do |bc|
+            bc.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -no-verify-emitted-module-interface'
+        end
+      end
+    end
+    
   end
 end
